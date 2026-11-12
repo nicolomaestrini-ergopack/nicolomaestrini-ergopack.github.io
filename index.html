@@ -60,9 +60,11 @@ h1 em{font-style:normal;color:var(--rosso)}
 .campo label .fac{font-weight:400;color:var(--grigio-chiaro)}
 .campo input{width:100%;height:54px;border:1.5px solid var(--bordo);border-radius:9px;background:#fff;color:var(--inchiostro);
   font:inherit;font-size:17px;padding:0 15px;outline:none;transition:border-color .15s,box-shadow .15s,background .15s;appearance:none}
-.campo input::placeholder{color:#A9A6A1}
-.campo input:hover{border-color:#9d9a95}
-.campo input:focus{border-color:var(--rosso);box-shadow:0 0 0 4px var(--rosso-alone)}
+.campo textarea{display:block;width:100%;min-height:104px;border:1.5px solid var(--bordo);border-radius:9px;background:#fff;color:var(--inchiostro);
+  font:inherit;font-size:17px;line-height:1.45;padding:13px 15px;outline:none;resize:vertical;transition:border-color .15s,box-shadow .15s,background .15s;appearance:none}
+.campo input::placeholder,.campo textarea::placeholder{color:#A9A6A1}
+.campo input:hover,.campo textarea:hover{border-color:#9d9a95}
+.campo input:focus,.campo textarea:focus{border-color:var(--rosso);box-shadow:0 0 0 4px var(--rosso-alone)}
 .campo.sbagliato input{border-color:var(--errore);background:#FFF7F7}
 .campo .avviso,.consenso-avviso{display:none;color:var(--errore);font-size:14px;font-weight:600;margin-top:6px}
 .campo.sbagliato .avviso,.consenso.sbagliato + .consenso-avviso{display:block}
@@ -184,6 +186,11 @@ footer a{color:var(--grigio);text-decoration:underline;text-underline-offset:3px
         <input id="pallet" name="pallet" type="text" inputmode="numeric" autocomplete="off" placeholder="Es. 40">
       </div>
 
+      <div class="campo" data-campo="note">
+        <label for="note">Note <span class="fac">(facoltativo)</span></label>
+        <textarea id="note" name="note" rows="3" maxlength="1000" autocomplete="off" placeholder="Es. quando preferisci essere richiamato"></textarea>
+      </div>
+
       <div class="trappola" aria-hidden="true">
         <label for="sito">Lascia vuoto questo campo</label>
         <input id="sito" name="sito" type="text" tabindex="-1" autocomplete="off">
@@ -229,10 +236,11 @@ footer a{color:var(--grigio);text-decoration:underline;text-underline-offset:3px
     telefono: "entry.1480844372",
     email: "entry.1454833293",
     pallet: "entry.431333258",
+    note: "entry.636882416",
     consenso: "entry.1090159639"
   };
-  // Finché è false la pagina non invia nulla e lo dice a chi compila (il Google Form non accetta ancora risposte).
-  var ATTIVO = false;
+  // Interruttore: con false la pagina non invia nulla e lo dice a chi compila.
+  var ATTIVO = true;
   var TESTO_CONSENSO = "Acconsento al trattamento dei miei dati da parte di ErgoPack per essere ricontattato in merito alla demo richiesta.";
 
   var modulo = document.getElementById("modulo");
@@ -297,6 +305,8 @@ footer a{color:var(--grigio);text-decoration:underline;text-underline-offset:3px
     dati.append(CAMPI.email, document.getElementById("email").value.trim());
     var pallet = document.getElementById("pallet").value.trim();
     if (pallet) dati.append(CAMPI.pallet, pallet);
+    var note = document.getElementById("note").value.trim();
+    if (note) dati.append(CAMPI.note, note);
     dati.append(CAMPI.consenso, TESTO_CONSENSO);
 
     bottone.disabled = true;
