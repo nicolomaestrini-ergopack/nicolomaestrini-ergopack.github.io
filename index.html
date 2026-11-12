@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Richiedi una demo gratuita | ErgoPack</title>
+<meta name="description" content="Reggiare i pallet in modo sano. Demo gratuita e senza impegno sui tuoi pallet.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#C00303">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23C00303'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/inter-extrabold.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Inter";src:url("assets/inter-regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter";src:url("assets/inter-semibold.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter";src:url("assets/inter-bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter";src:url("assets/inter-extrabold.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap}
+
+:root{
+  --rosso:#C00303; --rosso-scuro:#9E0202; --rosso-alone:rgba(192,3,3,.16);
+  --inchiostro:#161616; --grigio:#5F5F5F; --grigio-chiaro:#8A8A8A;
+  --sfondo:#F6F5F3; --carta:#FFFFFF; --bordo:#C9C7C3; --bordo-tenue:#E6E4E0;
+  --errore:#B00020; --ok:#1E7B45;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sfondo);color:var(--inchiostro);
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:var(--rosso)}
+
+/* Fascia in alto */
+.fascia{background:var(--rosso)}
+.fascia .dentro{max-width:1180px;margin:0 auto;padding:0 24px;height:84px;display:flex;align-items:center;justify-content:space-between}
+.fascia img{height:54px;width:auto}
+.fascia .tag{color:#fff;font-weight:600;font-size:15px;letter-spacing:.02em;opacity:.95}
+
+/* Corpo */
+.pagina{max-width:1180px;margin:0 auto;padding:56px 24px 72px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:start}
+.occhiello{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rosso);margin:0 0 18px}
+.occhiello::before{content:"";width:28px;height:3px;background:var(--rosso);border-radius:2px}
+h1{font-size:clamp(34px,4.6vw,58px);line-height:1.04;letter-spacing:-.028em;font-weight:800;margin:0 0 20px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--rosso)}
+.attacco{font-size:20px;line-height:1.5;color:var(--grigio);margin:0 0 30px;max-width:30em}
+.punti{list-style:none;margin:0 0 38px;padding:0;display:grid;gap:14px}
+.punti li{display:flex;gap:14px;align-items:flex-start;font-weight:600;font-size:17px}
+.punti svg{flex:none;width:26px;height:26px;margin-top:-1px}
+.foto{position:relative;margin:0}
+.foto::before{content:"";position:absolute;left:-14px;bottom:-14px;width:46%;height:58%;background:var(--rosso);border-radius:14px;z-index:0}
+.foto img{position:relative;z-index:1;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:14px;box-shadow:0 18px 40px -18px rgba(0,0,0,.45)}
+
+/* Scheda del modulo */
+.scheda{background:var(--carta);border:1px solid var(--bordo-tenue);border-top:5px solid var(--rosso);border-radius:14px;padding:34px 34px 30px;box-shadow:0 24px 60px -28px rgba(0,0,0,.35),0 2px 6px rgba(0,0,0,.04);position:sticky;top:28px}
+.scheda h2{font-size:27px;line-height:1.15;letter-spacing:-.018em;font-weight:800;margin:0 0 6px}
+.scheda .sotto{color:var(--grigio);font-size:16px;margin:0 0 26px}
+.campo{margin-bottom:18px}
+.campo label{display:block;font-size:15px;font-weight:700;margin-bottom:7px}
+.campo label .ob{color:var(--rosso);margin-left:2px}
+.campo label .fac{font-weight:400;color:var(--grigio-chiaro)}
+.campo input{width:100%;height:54px;border:1.5px solid var(--bordo);border-radius:9px;background:#fff;color:var(--inchiostro);
+  font:inherit;font-size:17px;padding:0 15px;outline:none;transition:border-color .15s,box-shadow .15s,background .15s;appearance:none}
+.campo input::placeholder{color:#A9A6A1}
+.campo input:hover{border-color:#9d9a95}
+.campo input:focus{border-color:var(--rosso);box-shadow:0 0 0 4px var(--rosso-alone)}
+.campo.sbagliato input{border-color:var(--errore);background:#FFF7F7}
+.campo .avviso,.consenso-avviso{display:none;color:var(--errore);font-size:14px;font-weight:600;margin-top:6px}
+.campo.sbagliato .avviso,.consenso.sbagliato + .consenso-avviso{display:block}
+.due{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.consenso{display:flex;gap:13px;align-items:flex-start;margin:6px 0 0;cursor:pointer;font-size:14.5px;line-height:1.45;color:#3B3B3B}
+.consenso input{position:absolute;opacity:0;width:0;height:0}
+.consenso .casella{flex:none;width:26px;height:26px;border:1.5px solid var(--bordo);border-radius:6px;background:#fff;display:grid;place-items:center;transition:all .15s;margin-top:1px}
+.consenso .casella svg{width:16px;height:16px;opacity:0;transform:scale(.6);transition:all .15s}
+.consenso input:checked + .casella{background:var(--rosso);border-color:var(--rosso)}
+.consenso input:checked + .casella svg{opacity:1;transform:scale(1)}
+.consenso input:focus-visible + .casella{box-shadow:0 0 0 4px var(--rosso-alone);border-color:var(--rosso)}
+.consenso.sbagliato .casella{border-color:var(--errore);background:#FFF7F7}
+.consenso-avviso{margin:6px 0 0 39px}
+
+.invia{margin-top:24px;width:100%;height:60px;border:0;border-radius:10px;background:var(--rosso);color:#fff;font:inherit;font-size:18px;font-weight:700;letter-spacing:.005em;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .15s,transform .15s,box-shadow .15s;box-shadow:0 10px 22px -10px rgba(192,3,3,.7)}
+.invia:hover{background:var(--rosso-scuro);transform:translateY(-1px);box-shadow:0 14px 26px -10px rgba(192,3,3,.75)}
+.invia:active{transform:translateY(0)}
+.invia:focus-visible{outline:3px solid var(--inchiostro);outline-offset:3px}
+.invia[disabled]{opacity:.75;cursor:progress;transform:none}
+.invia svg{width:20px;height:20px;transition:transform .15s}
+.invia:hover svg{transform:translateX(3px)}
+.nota{font-size:14px;color:var(--grigio);text-align:center;margin:16px 0 0}
+.errore-invio{display:none;margin:16px 0 0;padding:12px 14px;border-radius:9px;background:#FFF1F1;border:1px solid #F0B9B9;color:var(--errore);font-size:15px;font-weight:600}
+.trappola{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* Conferma */
+.conferma{display:none;text-align:center;padding:26px 6px 14px}
+.conferma .tondo{width:76px;height:76px;border-radius:50%;background:#E8F5EC;display:grid;place-items:center;margin:0 auto 22px}
+.conferma .tondo svg{width:38px;height:38px}
+.conferma h2{margin-bottom:12px}
+.conferma p{color:var(--grigio);font-size:18px;margin:0 auto;max-width:24em}
+.scheda.inviato form{display:none}
+.scheda.inviato .conferma{display:block}
+
+footer{border-top:1px solid var(--bordo-tenue);color:var(--grigio-chiaro);font-size:14px}
+footer .dentro{max-width:1180px;margin:0 auto;padding:22px 24px 30px;display:flex;gap:22px;flex-wrap:wrap;justify-content:space-between}
+footer a{color:var(--grigio);text-decoration:underline;text-underline-offset:3px}
+
+@media (max-width:980px){
+  .pagina{grid-template-columns:1fr;gap:34px;padding:34px 18px 48px}
+  .testa{display:contents}
+  .intro{order:1}.scheda{order:2;position:static}.prove{order:3}
+  .attacco{font-size:18px;margin-bottom:0}
+  .punti{margin-bottom:30px}
+}
+@media (max-width:560px){
+  .fascia .dentro{height:68px;padding:0 18px}.fascia img{height:44px}.fascia .tag{display:none}
+  .scheda{padding:24px 18px 22px;border-radius:12px}
+  .scheda h2{font-size:24px}
+  .due{grid-template-columns:1fr;gap:0}
+  .foto::before{left:-8px;bottom:-8px}
+  footer .dentro{padding:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="fascia">
+  <div class="dentro">
+    <img src="assets/ergopack-logo.svg" alt="ErgoPack" width="121" height="54">
+    <span class="tag">Reggiatura pallet mobile ed ergonomica</span>
+  </div>
+</header>
+
+<main class="pagina">
+  <div class="testa">
+    <section class="intro">
+      <p class="occhiello">Demo gratuita</p>
+      <h1>Reggiare i pallet <em>in modo sano.</em></h1>
+      <p class="attacco">Provalo sui tuoi pallet. Demo gratuita e senza impegno: ti richiamiamo entro un giorno lavorativo.</p>
+    </section>
+    <section class="prove">
+      <ul class="punti">
+        <li><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13" fill="#C00303"/><path d="M7.5 13.4l3.7 3.7 7.3-7.6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Demo sui tuoi pallet</li>
+        <li><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13" fill="#C00303"/><path d="M7.5 13.4l3.7 3.7 7.3-7.6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Gratuita e senza impegno</li>
+        <li><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13" fill="#C00303"/><path d="M7.5 13.4l3.7 3.7 7.3-7.6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Ti richiamiamo entro un giorno lavorativo</li>
+      </ul>
+      <figure class="foto">
+        <img src="assets/demo-ergopack.jpg" alt="Operatore in piedi mentre reggia un pallet con il sistema ErgoPack" width="1600" height="900" loading="lazy">
+      </figure>
+    </section>
+  </div>
+
+  <aside class="scheda" id="scheda">
+    <form id="modulo" novalidate>
+      <h2>Richiedi una demo gratuita</h2>
+      <p class="sotto">Bastano 30 secondi.</p>
+
+      <div class="campo" data-campo="nome">
+        <label for="nome">Nome e cognome<span class="ob">*</span></label>
+        <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Mario Rossi" required>
+        <div class="avviso">Scrivi nome e cognome.</div>
+      </div>
+
+      <div class="campo" data-campo="azienda">
+        <label for="azienda">Azienda<span class="ob">*</span></label>
+        <input id="azienda" name="azienda" type="text" autocomplete="organization" placeholder="Nome dell'azienda" required>
+        <div class="avviso">Scrivi il nome dell'azienda.</div>
+      </div>
+
+      <div class="due">
+        <div class="campo" data-campo="telefono">
+          <label for="telefono">Telefono<span class="ob">*</span></label>
+          <input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" placeholder="Numero di telefono" required>
+          <div class="avviso">Scrivi un numero valido.</div>
+        </div>
+        <div class="campo" data-campo="email">
+          <label for="email">Email<span class="ob">*</span></label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="nome@azienda.it" required>
+          <div class="avviso">Scrivi un'email valida.</div>
+        </div>
+      </div>
+
+      <div class="campo" data-campo="pallet">
+        <label for="pallet">Quanti pallet reggiate ogni giorno? <span class="fac">(facoltativo)</span></label>
+        <input id="pallet" name="pallet" type="text" inputmode="numeric" autocomplete="off" placeholder="Es. 40">
+      </div>
+
+      <div class="trappola" aria-hidden="true">
+        <label for="sito">Lascia vuoto questo campo</label>
+        <input id="sito" name="sito" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <label class="consenso" id="consenso-riga">
+        <input id="consenso" name="consenso" type="checkbox" required>
+        <span class="casella"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 4.6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span>Acconsento al trattamento dei miei dati da parte di ErgoPack per essere ricontattato in merito alla demo richiesta. <a href="privacy.html" target="_blank" rel="noopener">Informativa privacy</a><span style="color:#C00303"> *</span></span>
+      </label>
+      <div class="consenso-avviso">Serve il consenso per poterti ricontattare.</div>
+
+      <button class="invia" type="submit" id="invia">
+        <span id="invia-testo">Richiedi la demo gratuita</span>
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10.5 5.5L15 10l-4.5 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="errore-invio" id="errore-invio" role="alert">Invio non riuscito. Controlla la connessione e riprova.</div>
+      <p class="nota">Verrai contattato da un membro del team ErgoPack.</p>
+    </form>
+
+    <div class="conferma" id="conferma" role="status" aria-live="polite" tabindex="-1">
+      <div class="tondo"><svg viewBox="0 0 38 38" aria-hidden="true"><path d="M9 19.8l6.6 6.6L29.5 12" fill="none" stroke="#1E7B45" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h2>Richiesta inviata</h2>
+      <p>Grazie. Verrai contattato da un membro del team ErgoPack per fissare la demo sui tuoi pallet.</p>
+    </div>
+  </aside>
+</main>
+
+<footer>
+  <div class="dentro">
+    <span>ErgoPack: reggiatura pallet mobile ed ergonomica</span>
+    <span><a href="privacy.html">Informativa privacy</a> &nbsp;·&nbsp; <a href="https://www.ergopack.com/it/" target="_blank" rel="noopener">ergopack.com</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Le risposte arrivano nel Google Form «Richiedi una demo ErgoPack».
+  var INVIO = "https://docs.google.com/forms/d/e/1FAIpQLSd7uLi-oIf6GZYEWnZtbw-YZP100hmm57Clpxgf8r1n89Bm7g/formResponse";
+  var CAMPI = {
+    nome: "entry.1389545979",
+    azienda: "entry.1037664704",
+    telefono: "entry.1480844372",
+    email: "entry.1454833293",
+    pallet: "entry.431333258",
+    consenso: "entry.1090159639"
+  };
+  // Finché è false la pagina non invia nulla e lo dice a chi compila (il Google Form non accetta ancora risposte).
+  var ATTIVO = false;
+  var TESTO_CONSENSO = "Acconsento al trattamento dei miei dati da parte di ErgoPack per essere ricontattato in merito alla demo richiesta.";
+
+  var modulo = document.getElementById("modulo");
+  var scheda = document.getElementById("scheda");
+  var bottone = document.getElementById("invia");
+  var testoBottone = document.getElementById("invia-testo");
+  var erroreInvio = document.getElementById("errore-invio");
+  var rigaConsenso = document.getElementById("consenso-riga");
+
+  var controlli = {
+    nome: function (v) { return v.trim().length >= 3; },
+    azienda: function (v) { return v.trim().length >= 2; },
+    telefono: function (v) { return v.replace(/\D/g, "").length >= 6; },
+    email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); }
+  };
+
+  function controlla(nome) {
+    var campo = modulo.querySelector('[data-campo="' + nome + '"]');
+    var ok = controlli[nome](document.getElementById(nome).value);
+    campo.classList.toggle("sbagliato", !ok);
+    return ok;
+  }
+
+  Object.keys(controlli).forEach(function (nome) {
+    var input = document.getElementById(nome);
+    input.addEventListener("blur", function () { if (input.value) controlla(nome); });
+    input.addEventListener("input", function () {
+      var campo = modulo.querySelector('[data-campo="' + nome + '"]');
+      if (campo.classList.contains("sbagliato")) controlla(nome);
+    });
+  });
+  document.getElementById("consenso").addEventListener("change", function () {
+    if (this.checked) rigaConsenso.classList.remove("sbagliato");
+  });
+
+  modulo.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    erroreInvio.style.display = "none";
+
+    var primoSbagliato = null;
+    Object.keys(controlli).forEach(function (nome) {
+      if (!controlla(nome) && !primoSbagliato) primoSbagliato = document.getElementById(nome);
+    });
+    var consenso = document.getElementById("consenso");
+    rigaConsenso.classList.toggle("sbagliato", !consenso.checked);
+    if (!consenso.checked && !primoSbagliato) primoSbagliato = consenso;
+    if (primoSbagliato) { primoSbagliato.focus(); return; }
+
+    if (!ATTIVO) {
+      erroreInvio.textContent = "Il modulo non è ancora attivo. Riprova tra qualche giorno.";
+      erroreInvio.style.display = "block";
+      return;
+    }
+
+    // Campo trappola: se è compilato è un robot, si finge l'invio.
+    if (document.getElementById("sito").value) { mostraConferma(); return; }
+
+    var dati = new URLSearchParams();
+    dati.append(CAMPI.nome, document.getElementById("nome").value.trim());
+    dati.append(CAMPI.azienda, document.getElementById("azienda").value.trim());
+    dati.append(CAMPI.telefono, document.getElementById("telefono").value.trim());
+    dati.append(CAMPI.email, document.getElementById("email").value.trim());
+    var pallet = document.getElementById("pallet").value.trim();
+    if (pallet) dati.append(CAMPI.pallet, pallet);
+    dati.append(CAMPI.consenso, TESTO_CONSENSO);
+
+    bottone.disabled = true;
+    testoBottone.textContent = "Invio in corso…";
+
+    fetch(INVIO, { method: "POST", mode: "no-cors", body: dati })
+      .then(mostraConferma)
+      .catch(function () {
+        bottone.disabled = false;
+        testoBottone.textContent = "Richiedi la demo gratuita";
+        erroreInvio.style.display = "block";
+      });
+  });
+
+  function mostraConferma() {
+    scheda.classList.add("inviato");
+    var conferma = document.getElementById("conferma");
+    conferma.focus({ preventScroll: true });
+    scheda.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+})();
+</script>
+</body>
+</html>
